@@ -1,0 +1,419 @@
+/* ==========================================================================
+   1. CSS Reset & Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    background-color: #f9fafb;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Reusable Components & Global Styling
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background-color: #d1d5db;
+    transform: translateY(-2px);
+}
+
+.section-title {
+    font-size: 2.25rem;
+    text-align: center;
+    color: #111827;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   3. Navigation Bar
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.logo span {
+    color: #4f46e5;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #4f46e5;
+}
+
+.btn-nav {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   4. Hero Section & Initial Entrance Animation
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 8%;
+    gap: 40px;
+    min-height: calc(100vh - 80px);
+    background: radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.1) 0%, rgba(255, 255, 255, 0) 50%), #f9fafb;
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #111827;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #4b5563;
+    margin-bottom: 35px;
+    max-width: 540px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Modern Glassmorphism Hero Graphic Placement */
+.mockup-graphic {
+    width: 100%;
+    max-width: 450px;
+    height: 320px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(79, 70, 229, 0.15);
+    position: relative;
+}
+
+.mockup-graphic::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 75%;
+    background: rgba(255, 255, 255, 0.08); 
+    bottom: -30px;
+    right: -30px;
+    border-radius: 20px;
+    
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================================================
+   5. Services Section (Grid Layout & Hovers)
+   ========================================================================== */
+.services-section {
+    padding: 100px 8%;
+    background-color: #ffffff;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    padding: 40px 30px;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    border-color: #c7d2fe;
+}
+
+.service-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.35rem;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   6. Pricing Section
+   ========================================================================== */
+.pricing-section {
+    padding: 100px 8%;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    align-items: center;
+}
+
+.pricing-card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+}
+
+.pricing-card.featured {
+    border: 2px solid #4f46e5;
+    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.1);
+    padding: 50px 30px; 
+}
+
+.pricing-card.featured:hover {
+    box-shadow: 0 20px 35px rgba(79, 70, 229, 0.15);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4f46e5;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+.pricing-card .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 25px;
+}
+
+.pricing-card .price span {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.features li {
+    padding: 10px 0;
+    color: #4b5563;
+    font-size: 0.95rem;
+}
+
+.features li::before {
+    content: "✓";
+    color: #10b981;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.features li.disabled {
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.features li.disabled::before {
+    content: "✕";
+    color: #ef4444;
+}
+
+.pricing-card .btn {
+    width: 100%;
+}
+
+/* ==========================================================================
+   7. Footer Section
+   ========================================================================== */
+.footer {
+    background-color: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 40px 8%;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   8. Responsive Design (Media Queries)
+   ========================================================================== */
+
+/* Tablet Viewports */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.75rem;
+    }
+    .hero-section {
+        padding: 60px 5%;
+    }
+    .services-section, .pricing-section {
+        padding: 80px 5%;
+    }
+}
+
+/* Mobile Viewports */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+    .nav-links, .btn-nav {
+        display: none; 
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding-top: 40px;
+    }
+    
+    .hero-content p {
+        margin: 0 auto 30px auto;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .mockup-graphic {
+        height: 250px;
+        width: 80vw; /* Scales elegantly on small mobile screens */
+    }
+    
+    .pricing-card.featured {
+        padding: 40px 30px; 
+    }
+}
